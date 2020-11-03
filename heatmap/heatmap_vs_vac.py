@@ -1,5 +1,4 @@
-
-m matplotlib import pyplot as plt # or import matplotlib.pylot as plt
+from matplotlib import pyplot as plt # or import matplotlib.pylot as plt
 import seaborn as sns
 #sns.set_theme()
 import numpy as np
