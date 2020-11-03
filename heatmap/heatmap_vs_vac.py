@@ -36,4 +36,3 @@ for line in lines[1:]: # excluding the header. Starting from the 2nd row.
 
                     ax.plot()
                     plt.savefig("clonotype_vs_vac.png")
-                    i
