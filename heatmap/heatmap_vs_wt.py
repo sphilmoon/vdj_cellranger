@@ -36,3 +36,30 @@ plt.xlabel("Conditions", fontsize=22)
 
 ax.plot()
 plt.savefig("clonotype_vs_wt.png")
+
+def top_clonotypes_vs_vac():
+	fig = plt.figure()
+
+	f, axes = plt.subplots(1, 3)
+
+	csv_test = pd.read_csv('top_clonotypes_vs_wt.csv',index_col = 'v_gene' )
+	#code.interact(local=dict(globals(), **locals()))
+	plt.ylabel("Clonotypes", fontsize=18)
+
+	#============= plotting A ==============
+	df_A = csv_test.loc[:,('A.1')]
+	df_A_np = df_A.to_numpy().reshape(200,1) # for add dimension (200,) -> (200,1)
+	df_A = pd.DataFrame(df_A_np, index =  df_A.index)
+	df_A = df_A.sort_values(by=[0], ascending=True) # False for descending.
+
+	fig = plt.figure(1, figsize=(25, 25)) # now let's create clustermap.
+	ax1 = sns.heatmap(data = df_A,cmap="YlGnBu",ax=axes[0])
+	ax1 = sns.clustermap(data = df_A,cmap="YlGnBu",ax=axes[0])
+	ax1.xaxis.set_label_text('A')
+	ax1.yaxis.set_label_text('Clonotypes')
+
+	plt.xlabel('A', fontsize=18)
+	plt.show()
+	plt.savefig("ascending_wt.png")
+
+top_clonotypes_vs_vac()
