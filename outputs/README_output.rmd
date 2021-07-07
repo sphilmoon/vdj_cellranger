@@ -1,3 +1,4 @@
+# Processed output files from 10X "cellranger vdj" commands.
 # This is a description for samples:
 
 Mouse strain: C57BL6
